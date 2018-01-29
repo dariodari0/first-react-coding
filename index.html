@@ -5,24 +5,23 @@
     <title>Component 1</title>
     <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/react-dom-factories@1.0.0/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
 </head>
 <body>
   <div id="app"></div>
-<script type="text/javascript">
+<script type="text/babel">
 	class Logo extends React.Component {
 		render() {
-			const h1 = ReactDOMFactories.h1({
-				className: "header"
-			},"Welcome to my first component in REACT");
-			const img = ReactDOMFactories.img({
-				src: "https://react-etc.net/files/2016-07/logo-578x270.png",
-				alt: "logo react" 
-			});
-			return ReactDOMFactories.div(null,h1,img);
-		}
+		  return (
+			<div>
+				<h1 className="header">Welcome to my first component in REACT</h1>
+				<img src="https://react-etc.net/files/2016-07/logo-578x270.png"
+				     alt="logo react"/>
+			</div>
+		  )
+ 		}
 	}
-  ReactDOM.render(React.createElement(Logo), document.getElementById("app"));
+ReactDOM.render(React.createElement(Logo), document.getElementById("app"));
 </script>
 </body>
 </html>
