@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Component 1</title>
+	<link rel="stylesheet" href="first_component.css">
     <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
@@ -10,13 +11,28 @@
 <body>
   <div id="app"></div>
 <script type="text/babel">
+	class AdditionalsList extends React.Component {
+		render(){
+		const additionals = ['JSX - Babel', 'Redux', 'Router', 'User Authentication'];
+		const liStyle = {fontSize: '1.5em', listStyleType: 'disc'}; 
+	      return (
+			<ul>
+				{additionals.map((text,i) => {
+				  return <li key={i} style={liStyle}>{text}</li>
+			})}
+			</ul>
+		  );
+		}
+	}
 	class Logo extends React.Component {
 		render() {
 		  return (
-			<div>
-				<h1 className="header">Welcome to my first component in REACT</h1>
-				<img src="https://react-etc.net/files/2016-07/logo-578x270.png"
+			<div className="card"> 
+				<h2 className="name">ReactJS</h2>
+				<img src="https://www.shareicon.net/data/512x512/2016/07/08/117367_logo_512x512.png"
 				     alt="logo react"/>
+				<h3 style={{fontSize: '2em', margin: '2px'}}> Additionals: </h3> 
+				<AdditionalsList />
 			</div>
 		  );
  		}
